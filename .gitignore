@@ -35,6 +35,3 @@ yarn-error.log*
 
 # editor files
 .idea
-
-# data
-data
