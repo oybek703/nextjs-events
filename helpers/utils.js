@@ -10,7 +10,10 @@ export function getFilePath(filename = 'comments') {
 }
 
 export async function readFileData(path) {
-  return JSON.parse(await readFile(path, 'utf8'))
+    if(!fs.existsSync(path)) {
+        fs.writeFileSync(path, JSON.stringify([]))
+    }
+    return JSON.parse(await readFile(path, 'utf8'))
 }
 
 export async function writeFileData(path, data) {
